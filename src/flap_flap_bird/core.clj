@@ -341,16 +341,17 @@
 (defn game-release [game]
   (assoc game :rewind? false))
 
-(q/defsketch flap-flap-bird
-  :title "Flap Flap Bird"
-  :size  [800 600]
+(defn -main [& args]
+  (q/defsketch flap-flap-bird
+    :title "Flap Flap Bird"
+    :size  [800 600]
 
-  :setup         game-setup
-  :update        game-update
-  :draw          game-draw
-  :mouse-clicked game-click
-  :key-pressed   game-press
-  :key-released  game-release
+    :setup         game-setup
+    :update        game-update
+    :draw          game-draw
+    :mouse-clicked game-click
+    :key-pressed   game-press
+    :key-released  game-release
 
-  :features   [:resizable]
-  :middleware [qm/pause-on-error qm/fun-mode])
+    :features   [:resizable]
+    :middleware [qm/pause-on-error qm/fun-mode]))
